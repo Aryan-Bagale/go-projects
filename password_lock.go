@@ -10,7 +10,12 @@ func main() {
 
 		fmt.Print("Enter Password: ")
 		var input string
-		fmt.Scan(&input)
+		n, err := fmt.Scan(&input)
+		if err!= nil || n != 1{
+			fmt.Println("Invalid input. Try agian.")
+			attempts--  // don’t count this as a used attempt
+			continue
+		}
 
 		if input == password {
 			fmt.Println("Password is correct")
